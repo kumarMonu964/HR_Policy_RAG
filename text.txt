@@ -1,2 +1,0 @@
-Hey this is a repo with my first RAG 
-i will delete this file
