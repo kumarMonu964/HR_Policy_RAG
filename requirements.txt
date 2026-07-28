@@ -1,0 +1,7 @@
+langchain
+langchain-core
+langchain-community
+python-dotenv
+# LLM Provider
+langchain-groq
+langchain-text-splitters
