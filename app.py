@@ -19,10 +19,10 @@ def get_agent():
 agent = get_agent()
 
 if "messages" not in st.session_state:
-    st.session_state_messages = []
+    st.session_state["messages"] = []
 
 # Show the past conversations
-for message in st.session_state_messages:
+for message in st.session_state["messages"]:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
@@ -30,7 +30,7 @@ for message in st.session_state_messages:
 question = st.chat_input("Ask a question about HR policy...")
 
 if question:
-    st.session_state_messages.append({"role":"user","content":question})
+    st.session_state["messages"].append({"role":"user","content":question})
     with st.chat_message("user"):
         st.markdown(question)
 
@@ -38,7 +38,9 @@ if question:
         with st.spinner("Thinking..."):
             answer = ask(agent, question)
         st.markdown(answer)
-    st.session_state_messages.append({"role":"assistant","content":answer})
+    st.session_state["messages"].append({"role":"assistant","content":answer})
+
+
 
 
 
